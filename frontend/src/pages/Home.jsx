@@ -1,11 +1,32 @@
-// Home page component
-import React from 'react';
+import React, { useEffect } from 'react';
+import WorkoutDetails from '../components/WorkoutDetails';
+import { useWorkoutContext } from '../hooks/useWorkoutContext';
 
 const Home = () => {
+  // use workout context hook
+  const { workouts, dispatch } = useWorkoutContext();
+
+  useEffect(() => {
+    // get all workouts
+    const getWorkouts = async () => {
+      const response = await fetch('/api/workouts');
+      const data = await response.json();
+      if(response.ok) {
+        console.log(data);
+        dispatch({ type: 'SET_WORKOUTS', payload: data });
+      }
+    }
+    getWorkouts();
+  }, [dispatch]);
+
   return (
-    <div>
-      <h1>Welcome to my Home Page!</h1>
-      <p>This is the home page of my website.</p>
+    <div className="home">
+      <div className="workouts">
+        {workouts && workouts.map((workout) => (
+          console.log(workout),
+          <WorkoutDetails key={workout._id} workout={workout} />
+        ))}
+      </div>
     </div>
   );
 };
