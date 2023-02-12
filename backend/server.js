@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 const workoutsRouter = require('./routes/workouts');
+const userRoutes = require('./routes/users');
 
 // middleware
 app.use(express.json()); // To parse the incoming requests with JSON payloads, and is based on body-parser.
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/api/workouts', workoutsRouter);
+app.use('/api/users', userRoutes)
 
 // connect to db
 mongoose.set('strictQuery', false);
