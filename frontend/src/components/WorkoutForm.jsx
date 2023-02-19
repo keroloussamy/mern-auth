@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useWorkoutContext } from '../hooks/useWorkoutContext';
+import useWorkoutContext from '../hooks/useWorkoutContext';
 
 
 const WorkoutForm = () => {

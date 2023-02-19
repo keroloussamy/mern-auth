@@ -1,4 +1,4 @@
-import { useWorkoutContext } from "../hooks/useWorkoutContext";
+import useWorkoutContext from "../hooks/useWorkoutContext";
 import { formatDistanceToNow } from "date-fns";
 import TrashIcon from "../assets/trash-bin.png";
 
