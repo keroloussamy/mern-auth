@@ -1,6 +1,7 @@
 import useWorkoutContext from "../hooks/useWorkoutContext";
 import { formatDistanceToNow } from "date-fns";
 import TrashIcon from "../assets/trash-bin.png";
+import PropTypes from "prop-types";
 
 const WorkoutDetails = ({workout}) => {
   const { dispatch } = useWorkoutContext();
@@ -27,6 +28,11 @@ const WorkoutDetails = ({workout}) => {
       </span>
     </div>
   );
+};
+
+// check prop-types
+WorkoutDetails.propTypes = {
+  workout: PropTypes.object.isRequired,
 };
 
 export default WorkoutDetails;
