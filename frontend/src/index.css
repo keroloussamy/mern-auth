@@ -114,7 +114,7 @@ nav button {
   font-size: 1em;
 }
 
-nav a {
+nav a, nav button {
   margin-left: 10px;
 }
 
